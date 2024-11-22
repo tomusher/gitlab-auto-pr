@@ -7,6 +7,10 @@
 
 # Gitlab Auto PR
 
+
+https://github.com/user-attachments/assets/a0b4cf08-4d53-443c-88ab-c195a2ae04c8
+
+
 Watches a Gitlab project for Issues with the `auto-pr` tag and then tries to create a pull request with LLM-generated changes.
 
 Currently only works on a single file.
