@@ -138,11 +138,12 @@ class GitlabAutoPR:
         while True:
             issues = self.issue_handler.get_auto_pr_issues()
             for issue in issues:
+            try:
                 self.process_issue(issue)
                 self.issue_handler.mark_issue_processed(issue)
-            # except Exception as e:
-            #     print(f"Error processing issue {issue.iid}: {str(e)}")
-            #     self.issue_handler.mark_issue_failed(issue, str(e))
+            except Exception as e:
+                print(f"Error processing issue {issue.iid}: {str(e)}")
+                self.issue_handler.mark_issue_failed(issue, str(e))
 
 
 if __name__ == "__main__":
