@@ -1,0 +1,15 @@
+[project]
+name = "gitlab-auto-pr"
+version = "0.1.0"
+description = "LLM generated PRs for Gitlab"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=0.39.0",
+    "gitpython>=3.1.43",
+    "python-dotenv>=1.0.1",
+    "python-gitlab>=5.0.0",
+    "sentence-transformers>=3.3.1",
+    "sqlite-lembed>=0.0.1a8",
+    "sqlite-vec>=0.1.6",
+]
