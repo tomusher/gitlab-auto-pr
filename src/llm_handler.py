@@ -32,6 +32,7 @@ class CodebaseLLM:
             ".swift",
             ".kt",
             ".tf",
+            ".toml",
         }
 
     def _setup_db(self):
@@ -108,7 +109,7 @@ class CodebaseLLM:
                     cursor = self.db.execute(
                         """INSERT INTO file_embeddings (path, content, hash, embedding) 
                            VALUES (?, ?, ?, lembed('jinav2', ?))""",
-                        (relative_path, content, hash, content[:1000]),
+                        (relative_path, content, hash, content[:500]),
                     )
 
                     updated_files += 1
@@ -143,7 +144,7 @@ class CodebaseLLM:
 
         return self.anthropic_client.messages.create(**kwargs)
 
-    def _get_relevant_files(self, repo_path, issue_description, max_files=6):
+    def _get_relevant_files(self, repo_path, issue_description, max_files=20):
         """Get relevant files using vector similarity search"""
         # Update index for any changed files
         updated_count = self._index_files(repo_path)
